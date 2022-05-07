@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ideal Roommate</title>
+  </head>
+  <body>
+    <a href="{{ url_for('auth.logout') }}">Logout</a>
+    <h1>Welcome to Ideal Roommate</h1>
+    <!-- <a href="{{ url_for('main.index') }}">Find your ideal Roommate</a> -->
+
+    <h2>ID: {{ani[0]}}</h2>
+    <h2>Name: {{ani[1]}}</h2>
+    <h2>Species: {{ani[2]}}</h2>
+    <img src="{{url_for('static', filename=ani[5])}}" width=400>
+    
+  </body>
+</html>

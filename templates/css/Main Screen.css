@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+a:link {
+  color: cornsilk;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: wheat;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.clearfix {
+    clear: both;
+}
+
+
+.header-banner {
+    padding-top: 35px;
+    padding-bottom: 100px;
+    color: #ffffff;
+    font-family: Helvetica, serif;
+    font-weight: 100;
+    background-image: url("https://grapesjs.com/img/bg-gr-v.png"), url("https://grapesjs.com/img/work-desk.jpg");
+    background-attachment: scroll, scroll;
+    background-position: left top, center center;
+    background-repeat: repeat-y, no-repeat;
+    background-size: contain, cover;
+}
+
+.container-width {
+    width: 90%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.logo-container {
+    float: left;
+    width: 50%;
+}
+
+.logo {
+    background-color: #fff;
+    border-radius: 5px;
+    width: 130px;
+    padding: 10px;
+    min-height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: #4d114f;
+    font-size: 23px;
+}
+
+.menu {
+    float: right;
+    width: 50%;
+}
+
+.menu-item {
+    float: right;
+    font-size: 15px;
+    color: #eee;
+    width: 130px;
+    padding: 10px;
+    min-height: 50px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 400;
+}
+
+.lead-title {
+    margin: 150px 0 30px 0;
+    font-size: 40px;
+}
+
+.am-sect {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    font-family: Helvetica, serif;
+}
+
+.form {
+    border-radius: 3px;
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#i7imfk {
+    padding: 10px;
+    width: 25%;
+    float: right;
+    box-shadow: 10px 0 5px 2px #8c35df;
+    border: 0 solid #a45050;
+}
+
+#iip12f {
+    padding: 10px;
+    width: 20%;
+    border: 0 outset #7bf83e;
+    box-shadow: 5px 0 5px 3px #b1eab1, 0 0 5px 0 black, 0 0 5px 0 black, 0 0 5px 0 black, 0 0 5px 0 black, 0 0 5px 0 black;
+    opacity: 0.6;
+}
+
+#ivdr {
+    opacity: 0.89;
+    border: 0 solid #c68888;
+    box-shadow: 10px 4px 5px 5px #15f6ac;
+}
+
+#ig24 {
+    width: 100%;
+}
+
+#ijtyy {
+    width: 75%;
+    box-shadow: 10px 0 5px 0 black;
+    background-image: none;
+    background-repeat: repeat;
+    background-position: left top;
+    background-attachment: scroll;
+    background-size: auto;
+}
+
+.row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    padding: 10px;
+}
+
+.cell {
+    min-height: 75px;
+    flex-grow: 1;
+    flex-basis: 100%;
+}
+
+#i4vz {
+    width: 50%;
+    opacity: 0.37;
+}
+
+#itd7f {
+    color: black;
+    width: 100%;
+}
+
+#iotjh {
+    padding: 10px;
+    border: 5px solid #c3e61a;
+    background-image: none;
+    background-repeat: repeat;
+    background-position: left top;
+    background-attachment: scroll;
+    background-size: auto;
+    height: 50px;
+}
+
+#io57h {
+    text-align: center;
+}
+
+#ifyl6 {
+    line-height: 107%;
+}
+
+#i4ach {
+    font-size: 14pt;
+}
+
+#ii32k {
+    font-size: 18.6667px;
+}
+
+#i3o49 {
+    font-size: 14pt;
+}
+
+#i44eg {
+    font-size: 18.6667px;
+}
+
+#i4gr8 {
+    font-size: 14pt;
+}
+
+#i78i {
+    box-shadow: 0 5px 5px 0 black;
+}
+
+#i8gev {
+    box-shadow: 0 5px 5px 0 black;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-wrap: wrap;
+    }
+}

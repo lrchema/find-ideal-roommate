@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{{url_for('static', filename='CSS/myprofile.css') }}">
+</head>
+
+<body>
+
+  <body>
+    <header class="header-banner" id="iqyg">
+      <div class="container-width" id="ipjs">
+        <div class="logo-container">
+          <div class="logo" id="ik5b">IDEAL ROOM MATE</div>
+        </div>
+        <nav id="i5uh" class="menu">
+          <div id="i78i" class="menu-item"><a href="{{ url_for('main.mainpage') }}">Back to Main</a></div>
+      </nav>
+         <div id="ixk8ib"></div>
+        <!-- <div class="clearfix"></div><img id="ixvu53" src="./static/prof1.jpg" /> -->
+        <img src="{{url_for('static', filename=user[15])}}" width=400>
+        <div id="ijegz">FIND MY IDEAL ROOM MATE - PROFILE VIEW
+        </div>
+        <div class="row" id="i360k3">
+          <div class="cell">
+            <form class="form" id="i080pd">
+              
+              <div class="form-group"><label id="i4sx7i" class="label">Name   :   {{user[5]}}</label></div>
+              <br>
+              <div class="form-group"><label class="label" id="i4sx7i">Email  :  {{user[2]}}</label></div>
+              <br>
+              <div class="form-group" id="i4sx7i"><label class="label" id="ivvwxx">Gender  :  {{user[6]}}</label></div>
+              <br>
+              <div class="form-group" id="i4sx7i"><label class="label" id="ij09zo">Language  :{{user[8]}}</label></div>
+              <br>
+              <div class="form-group" id="i4sx7i"><label class="label" id="ij09zo">Age  :{{user[7]}}</label></div>
+              <br>
+              <div class="form-group" id="i4sx7i"><label class="label" id="ij09zo">Food Preferences  :{{user[12]}}</label></div>
+              <br>
+              <div class="form-group" id="i4sx7i"><label class="label" id="ij09zo">Drinker  :{{user[13]}}</label></div>
+              <br>
+              <div class="form-group" id="i4sx7i"><label class="label" id="ij09zo">Shift   : {{user[14]}} </label></div>             
+              <br>
+               <div class="form-group" id="ihhfe2"></div>
+            </form>
+          </div>
+          <div class="cell" id="ib92oi">
+            <form class="form" id="ijqmg6">
+              <div class="form-group" id="i080pd"></div>
+          </div></div>
+          
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="cell" id="igeocb">
+            <form class="form">
+              <div class="form-group"></div>
+              <div class="form-group"></div>
+              <div class="form-group"></div>
+               
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+             
+    footer>
+  </body>
+  <script>var items = document.querySelectorAll('#ixk8ib');
+    for (var i = 0, len = items.length; i < len; i++) {
+      (function () {
+        var e = this, t = JSON.parse('["Welcome to Find My Room Mate Project profile View"]'), r = function (e) { return parseInt(e, 10) || 0 }, n = function (e) { return !!e }, o = function () { var o = e; o.innerHTML = '<span></span>'; var c = parseInt('Infinity', 10), s = { typeSpeed: r('40'), startDelay: r(''), backDelay: r('700'), backSpeed: r(''), smartBackspace: n('true'), fadeOut: n(''), fadeOutClass: 'typed-fade-out', fadeOutDelay: r('500'), shuffle: n(''), loop: n(''), loopCount: isNaN(c) ? 1 / 0 : c, showCursor: n('true'), cursorChar: '|', autoInsertCss: n('true'), bindInputFocusEvents: n(''), attr: '', contentType: 'html' }; t && t.length && (s.strings = t), new Typed(o.children[0], s) }; if (window.Typed) o(); else { var c = document.createElement('script'); c.src = 'https://cdn.jsdelivr.net/npm/typed.js@2.0.11', c.onload = o, document.head.appendChild(c) }
+      }.bind(items[i]))();
+    }</script>
+</body>
+<html>

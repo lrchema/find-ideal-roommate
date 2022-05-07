@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+   <link rel="stylesheet" href="{{url_for('static', filename='CSS/login.css') }}">
+    </head>
+
+<body>
+
+    <header id="ivdr" class="header-banner">
+        <div id="ig24" class="container-width">
+            <div id="i1dx" class="logo-container">
+                <div id="i4vz" class="logo">IDEAL ROOM MATE</div>
+            </div>
+            <nav class="menu" id="i5uh">
+                 <div class="menu-item" id="i78i"><a href="{{ url_for('main.index') }}">Go Back</a></div>   
+            </nav>
+               
+                <div class="clearfix"></div>
+                <div id="ijtyy" class="lead-title">Welcome to Find my Ideal Room Mate Project</div>
+        
+                <div id="i7imfk">login with username and password</div>
+                <div id="iip12f"><b>My Ideal Room Mate</b></div>
+                
+                <form id="iq2rmo" class="form">
+                    <div id="i337g" class="form-group"></div>
+                </form>
+                <form id="i5vv2" class="form"  method="POST" action="/login">
+
+                    <div id="i4lld" class="form-group"><label id="ih3ux" class="label">User Name</label><input name="username"
+                            placeholder="Type here your username" type="text" required id="i4nwp" class="input" /><label
+                            id="i8ubd" class="label">Password</label><input name="password" placeholder="Type here your Password"
+                            type="password" required id="igsg1" class="input" /></div>
+                            <div id="i7imfk">{{ messages }}</div>
+                    <div class="form-group"></div>
+                    <div id="iscr24" class="form-group"><button type="submit" id="iojvu8" class="button">Submit</button><a
+                            target="_blank" title="Forgot Password?" href="http://google.com" id="i4jdi">Forgot your password?</a></div>
+                           
+                </form>
+                <div id="iurac" class="row">
+                    <div id="itylk" class="cell">
+                        <div id="iotjh"><span id="io57h"><span><span id="ifyl6">
+                                        <font face="Calibri, sans-serif"><b><span id="i4ach"><span id="i8pmr">New
+                                                        In Town: A </span></span><span
+                                                    id="ii32k"><span>Customizable</span></span><span
+                                                    id="i3o49"> Hostel/Roommate-matching System Harnessing Artificial
+                                                    Intelligence to </span><span
+                                                    id="i44eg"><span>Maximize</span></span><span
+                                                    id="i4gr8"> Compatibility</span></b></font>
+                                    </span></span></span></div>
+                    </div>
+                </div>
+                <form id="ixmb3o" class="form">
+                    <div class="form-group"></div>
+                    <div class="form-group"></div>
+                </form>
+            </div>
+        </header>
+        <section id="i46wqj" class="am-sect">
+            <div class="container-width"></div>
+        </section>
+    </body>
+</body>
+<html>
