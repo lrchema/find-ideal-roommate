@@ -11,7 +11,7 @@ def sendEmail(emailBody, toUserid):
     user = 'idealroommate045@gmail.com'
     app_password ='ooeykmposzgmryxp'
 
-    subject = 'A potential roommate!'
+    subject = 'Find Ideal Roommate: You have a new enquiry!'
     content = [emailBody]
 
     with yagmail.SMTP(user, app_password) as yag:
