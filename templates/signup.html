@@ -1,34 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Ideal Roommate</title>
-  </head>
-  <body>
-    <h1>New here? Sign up!</h1>
-        <div class="notification is-danger">
-            <a href="{{ url_for('auth.login') }}">{{ messages }}</a>.
-        </div>
-    <form method="POST" action="/signup">
-        <div class="field">
-            <div class="control">
-                <input class="input is-large" type="email" name="email" placeholder="Email" autofocus="">
-            </div>
-        </div>
 
-        <div class="field">
-            <div class="control">
-                <input class="input is-large" type="text" name="name" placeholder="Name" autofocus="">
-            </div>
-        </div>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='CSS/register.css') }}">
+</head>
 
-        <div class="field">
-            <div class="control">
-                <input class="input is-large" type="password" name="password" placeholder="Password">
-            </div>
-        </div>
+<body>
 
-        <button>Sign Up</button>
-    </form>
-  </body>
-</html>
+    <body>
+        <header id="ivdr" class="header-banner">
+            <div id="ig24" class="container-width">
+                <div id="i1dx" class="logo-container">
+                    <div id="i4vz" class="logo">IDEAL ROOM MATE</div>
+                </div>
+                <nav class="menu" id="i5uh">
+                     <div class="menu-item" id="i78i"><a href="{{ url_for('main.index') }}">Go Back</a></div>   
+                </nav>
+                <div class="clearfix"></div>
+                <div id="ijtyy" class="lead-title">Welcome to Find my Ideal Room Mate Project</div>
+                <div id="i7imfk">Register with your username password to access</div>
+                <div id="iip12f"><b>My Ideal Room Mate</b></div>
+                <form id="iq2rmo" class="form">
+                    <div id="i337g" class="form-group"></div>
+                </form>
+                <div class="notification is-danger">
+                    {{ messages }}
+                </div>
+                <form id="i5vv2" class="form" method="POST" action="/signup">
+                    <div id="i4lld" class="form-group">
+                    <div id="iaghf" class="form-group"><label id="izdwf" class="label">Email</label><input name="email" type="email"
+                            placeholder="Type here your email" id="infxk" class="input" />
+                            <label id="ih3ux" class="label">User Name</label><input
+                            placeholder="Type here your Username" type="text" required id="i4nwp" class="input" name="username"/>
+                            <label id="i1kzi"
+                            class="label">password</label><input name="password" type="password" placeholder="Type here your Password"
+                            required id="ixgud4" class="input" /><label id="ioelfn" class="label">confirm
+                            Password</label><input name="cfmpassword" type="password" placeholder="Confirm your password " required
+                            id="i52tia" class="input" /></div>
+                        </div>
+                    <div class="form-group"></div>
+                    <div id="iscr24" class="form-group"><button type="submit" id="iojvu8" class="button">Submit</button>
+                    </div>
+                </form>
+                <div id="i7imfk">{{ messages }}</div>
+                <div id="iurac" class="row">
+                    <div id="itylk" class="cell">
+                        <div id="iotjh"><span id="io57h"><span><span id="ifyl6">
+                                        <font face="Calibri, sans-serif"><b><span id="i4ach"><span id="i8pmr">New
+                                                        In Town: A </span></span><span
+                                                    id="ii32k"><span>Customizable</span></span><span
+                                                    id="i3o49"> Hostel/Roommate-matching System Harnessing Artificial
+                                                    Intelligence to </span><span
+                                                    id="i44eg"><span>Maximize</span></span><span
+                                                    id="i4gr8"> Compatibility</span></b></font>
+                                    </span></span></span></div>
+                    </div>
+                </div>
+                <form id="ixmb3o" class="form">
+                    <div class="form-group"></div>
+                    <div class="form-group"></div>
+                </form>
+            </div>
+        </header>
+        <section id="i46wqj" class="am-sect">
+            <div class="container-width"></div>
+        </section>
+    </body>
+</body>
+<html>

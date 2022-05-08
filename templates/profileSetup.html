@@ -1,32 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Ideal Roommate</title>
-  </head>
-  <body>
-    <a href="{{ url_for('auth.logout') }}">Logout</a>
-    <h1>Welcome, {{ currani.name }}</h1>
-    <h2>Please setup your profile before proceeding</h2>
-    <form method="POST" enctype=multipart/form-data action="/profileSetup">
-      <div class="field">
-        <div class="control">
-          <input
-            class="input is-large"
-            type="text"
-            name="species"
-            placeholder="Your Species"
-            autofocus=""
-          />
+<body>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="{{url_for('static', filename='CSS/myprofile.css') }}" />
+  <header id="iqyg" class="header-banner">
+    <div id="ipjs" class="container-width">
+      <div class="logo-container">
+        <div id="ik5b" class="logo">IDEAL ROOM MATE
+        </div>
+      </div>
+      <nav id="ibsn" class="menu">
+        <div id="i78i" class="menu-item">
+          <a href="{{ url_for('auth.logout') }}">Log Out </a>
+        </div>
+        <div id="i78i-2" class="menu-item">
+          <a href="{{ url_for('main.mainpage') }}" id="iz19t"> Back to Main</a>
+        </div>
+        <div id="ixu8" class="menu-item">
+        </div>
+      </nav>
+      <div id="ixk8ib">
+      </div>
+      <div class="clearfix">
+      </div>
+      <div id="ijegz">FIND MY IDEAL ROOM MATE - PROFILE SETUP
+      </div>
+      <div id="ijegz">{{ messages }}</div>
+      <div id="i360k3" class="row">
+        <div class="cell">
+
+          <form id="ipqnxj" class="form" enctype=multipart/form-data method="POST" action="/profileSetup">
+            <label class="label" id="i45tw">Upload profile picture</label>
+            <div class="field">
+              <div class="control">
+                <input type="file" name="file" autocomplete="off" required />
+              </div>
+            </div>
+
+            <div id="i7gpo" class="form-group">
+            <br>
+              <label id="i4sx7i" class="label">User Name:  {{user.username}} <tb></tb>  Email:  {{user.email}}</label>
+              <br> 
+              <label class="label" id="i45tw">Name</label>
+              <input name="name" placeholder="Type here your name" id="iszyi6" class="input" required />
+            </div>
+            <div id="ij6fl7" class="form-group">
+              <label id="izoxlj" class="label">Gender</label>
+              <select name="Gender" class="select" id="i95oe">
+                <option value="">- Select option -</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+              </select>
+            </div>
+           
+            <div id="ia2rqe" class="form-group">
+              <label id="izoxlj" class="label">Language</label>
+              <select name="Lang" class="select" id="i95oe">
+                <option value="">- Select option -</option>
+                <option value="Tamil">Tamil</option>
+                <option value="English">English</option>
+                <option value="Telugu">Telugu</option>
+                <option value="Kannada">Kannada</option>
+                <option value="Hindi">Hindi</option>
+                                
+              </select>
+            </div>
+              <label id="ifzfd7" class="label">Age</label>
+              <input placeholder="Type here your Age" name="age" type="number" id="ivnib9" class="input" />
+            <div id="i7gpo" class="form-group">
+              <label id="igfinb" class="label">Food Preferences</label>
+              <select id="ija2be" name="food_pref" class="select">
+                <option value="">- Select option -</option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="Non-vegetarian">Non-Vegetarian</option>
+              </select>
+            </div>
+            <div id="i7gpo" class="form-group">
+              <label id="igfinb" class="label">Shift</label>
+              <select id="ija2be" name="Shift" class="select">
+                <option value="">- Select option -</option>
+                <option value="Day">Day</option>
+                <option value="Night">Night</option>
+              </select>
+            </div>
+            <div id="i7gpo" class="form-group">
+              <label id="igfinb" class="label">Drinker</label>
+              <select id="ija2be" name="Drinker" class="select">
+                <option value="">- Select option -</option>
+                <option value=1>Yes</option>
+                <option value=0>No</option>
+              </select>
+            </div>
+            
+            
+              <div id="ij6fl7" class="form-group">
+                <button id="ivvqrg">Save Profile</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
 
-      <div class="field">
-        <div class="control">
-          <input type="file" name="file" autocomplete="off" required />
-        </div>
-      </div>
-      <button>Submit</button>
-    </form>
-  </body>
-</html>
+    </div>
+  </header>
+</body>

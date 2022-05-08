@@ -2,6 +2,12 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="{{url_for('static', filename='CSS/email.css') }}">
+    <style type="text/css">
+      textarea {
+       font-size: 2em;
+       border: 1px solid black;
+      }
+      </style>
 </head>
 
   <header id="iqyg" class="header-banner">
@@ -24,45 +30,22 @@
       <div id="i360k3" class="row">
         <div id="ib92oi" title="hello" class="cell">
           <section class="bdg-sect" id="iq7ton">
-            <div id="irtllh">Dear  &lt;insert addressee&gt;&gt;                                                                                                                                              date:  &lt;&lt;insert date&gt;&gt;
-            </div>
-            <h1 class="heading" id="i2bjgk">
-              <br/>
-              <br/>Greetings!
-              <span id="i6zvkr">                                                                 </span>
-              <p class="MsoNormal" id="igz2my">
-                <span id="ih452b">Hope all is
-                  well!<o:p>
-                  </o:p></span>
-              </p>
-              <p class="MsoNormal">
-                <span id="iz0nql"> I am looking for a roommate and was using this Find your ideal Roommate
-                  application.  I came across your profile
-                  and I am interested to be your roommate as we have many things in common and
-                  also your room is close to my office location.<o:p>
-                  </o:p></span>
-              </p>
-              <p class="MsoNormal">
-                <span id="iee8mf">Please do
-                  check on my profile, and if you are interested, we can meet up to discuss
-                  further.  <o:p>
-                  </o:p></span>
-              </p>
-              <p class="MsoNormal">
-                <span id="i066zz">Please send
-                  in your interest through email.  I will
-                  then share my phone number and we can setup our meeting.<o:p>
-                  </o:p></span>
-              </p>
-              <p class="MsoNormal">
-                <span id="iusn5s">Looking
-                  forward to meeting you in person!<o:p>
-                  </o:p></span>
-              </p>
-              <p class="MsoNormal" id="ila22k">
-                <span id="iqbdxk">Regards<br/><br/>&lt;&lt;insert sender&gt;&gt;<br/><br/><o:p>
-                  </o:p></span>
-              </p>
+            <textarea id = "iq7ton" name="emailBody" rows = "10" cols="50" font>
+Dear insert addressee,
+
+Greetings!
+Hope all is well!
+
+I am looking for a roommate and was using this Find your ideal Roommate application.  
+
+I came across your profile and I am interested to be your roommate as we have many things in common and also your room is close to my office location. If you are interested, we can meet up to discuss
+further. Please send in your interest through email.  I will then share my phone number and we can setup our meeting. 
+
+Looking forward to meeting you in person!
+
+Regards,
+insert sender
+            </textarea>
             </h1>
           </section>
         </div>
@@ -86,17 +69,6 @@
   </header>
   <footer class="footer-under" id="iugnrh">
     <div class="container-width">
-    </div>
-    <div class="copyright">
-      <div class="container-width">
-        <div class="made-with">
-          made with GrapesJS
-        </div>
-        <div class="foot-social-btns">facebook twitter linkedin mail
-        </div>
-        <div class="clearfix">
-        </div>
-      </div>
     </div>
   </footer>
 </body>

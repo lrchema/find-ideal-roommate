@@ -55,33 +55,14 @@ tr:nth-child(even) {
   <tr>
     <th>Name</th>
     <th>Gender</th>
-    <th>Langauge</th>
+    <th>Language</th>
     <th>Age</th>
-    <th>city</th>
-    <th>area</th>
-    <th>additional details</th>
+    <th>City</th>
+    <th>Area</th>
+    <th>Additional details</th>
     
   </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Details</td>
-    
-      
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Details</td>
-     </tr>
+  {% for r in results %}
   <tr>
     <td>Alfreds Futterkiste</td>
     <td>Maria Anders</td>
@@ -91,42 +72,11 @@ tr:nth-child(even) {
     <td>Germany</td>
     <td>Details</td>
   </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Details</td>
-     </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Details</td>
-     </td>
- 
-      
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Germany</td>
-    <td>Details</td>
-     
-     </tr>
+  {% endfor %}
 </table>
 
 </body>
 </html>
-   
-        <button id="iogmd" class="button">Send</button>
           <div data-gjs="navbar" id="i0t9p" class="navbar">
             <div id="iwtfm" class="navbar-container">
               <div id="il4bu" class="navbar-burger">
