@@ -170,7 +170,7 @@ def search_post():
 def result():
     if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
-    matchStr = request.args.getlist('matchStr')
+    matchStr = request.args.get('matchStr')
     print(matchStr)
     if not matchStr:
         matches = request.args.getlist('matches')
