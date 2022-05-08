@@ -1,10 +1,9 @@
-from inspect import currentframe
 import os
-from unicodedata import name
 from flask import Blueprint, abort, redirect, request, url_for
 from flask import render_template
+
+from . import knn
 from . import dbconn
-from . import animal
 from . import user_info
 
 main = Blueprint('main', __name__)
@@ -64,29 +63,17 @@ def get_user_info(username):
 
 @main.route('/mainpage')
 def mainpage():
+    if not user_info.curruser_info:
+        return redirect(url_for('auth.login'))
     messages = request.args.get('messages')
     if not messages:
         messages = ""
     return render_template('mainPage.html', messages = messages)
 
-@main.route('/search')
-def search():
-    conn = dbconn()
-    conn.reconnect()
-    cur = conn.cursor()
-    cur.execute("select passion from passions")
-    passions = cur.fetchall()
-    conn.close()
-    return render_template('searchCriteria.html', passions = passions)
-
-@main.route('/search', methods=['POST'])
-def search_post():
-    # TODO: implement search criteria knn whatever
-    return "TODO"
-
-
 @main.route('/profileSetup')
 def profileSetup():
+    if not user_info.curruser_info:
+        return redirect(url_for('auth.login'))
     messages = request.args.get('messages')
     if not messages:
         messages = ""
@@ -94,6 +81,8 @@ def profileSetup():
 
 @main.route('/profileSetup', methods=['POST'])
 def profileSetup_post():
+    if not user_info.curruser_info:
+        return redirect(url_for('auth.login'))
     UPLOAD_FOLDER = 'static/'
     print(len(request.files))
     print(request.files['file'])
@@ -134,6 +123,8 @@ def profileSetup_post():
 @main.route('/viewprofile')
     
 def viewprofile():
+    if not user_info.curruser_info:
+        return redirect(url_for('auth.login'))
     print("drinker:",user_info.curruser_info.drinker)
     messages = request.args.get('messages')
     if not messages:
@@ -141,49 +132,61 @@ def viewprofile():
     username=user_info.curruser_info.username
     user = list(get_user_info(username))
     return redirect(url_for('main.route_user_info', userid=user[0]))
-     
+    
+@main.route('/search')
+def search():
+    if not user_info.curruser_info:
+        return redirect(url_for('auth.login'))
+    conn = dbconn()
+    conn.reconnect()
+    cur = conn.cursor()
+    cur.execute("select passion from passions")
+    passions = cur.fetchall()
+    conn.close()
+    return render_template('searchCriteria.html', passions = passions)
 
-#TODO: this is sus
-@main.route('/details')
-def details():
-    messages = request.args.get('messages')
-    if not messages:
-        messages = ""
-    username=user_info.curruser_info.username
-    user = list(get_user_info(username))
-    if not user[15]:
-        user[15] = "notfound"
-    if  user[13]:
-        user[13] = "Yes"
-    else:
-        user[13]="No"
-    if  user[16]:
-        user[16] = "Yes"
-    else:
-        user[16]="No"
-    return render_template('additionalDetails.html',user=user, messages = messages)
-@main.route('/details', methods=['POST'])
-def details_post():
-    return redirect(url_for('main.details'))
-# until here
+@main.route('/search', methods=['POST'])
+def search_post():
+    gender = request.form.get('gender')
+    minAge = int(request.form.get('minAge'))
+    maxAge = int(request.form.get('maxAge'))
+    age = (minAge+maxAge)/2
+    city = request.form.get('city')
+    area = request.form.get('area')
+    lang = request.form.get('lang')
+    food_pref = request.form.get('food_pref')
+    shift = request.form.get('shift')
+    drinker = int(request.form.get('drinker'))
+    passions = request.form.get('passions')
+
+    print(gender, age, city, area, lang, food_pref, shift, drinker, passions)
+    matches = knn.get_top_k([gender, age, city, area, lang, food_pref, shift, drinker, passions])
+    
+    return redirect(url_for('main.result', matches=matches))
+
+@main.route('/result')
+def result():
+    if not user_info.curruser_info:
+        return redirect(url_for('auth.login'))
+    matches = request.args.getlist('matches')
+    print(matches)
+    results = []
+    for m in matches:
+        results.append(get_user_info_by_id(m))
+    return render_template('result.html', results=results)
 
 @main.route('/email')
 def email():
+    if not user_info.curruser_info:
+        return redirect(url_for('auth.login'))
     messages = request.args.get('messages')
     if not messages:
         messages = ""
     return render_template('email.html', messages = messages)
 @main.route('/email', methods=['POST'])
 def email_post():
+
     #TODO implement this
     return "TODO"
 
-@main.route('/result')
-def result():
-    messages = request.args.get('messages')
-    if not messages:
-        messages = ""
-    return render_template('result.html', messages = messages)
-@main.route('/viewprofile', methods=['POST'])
-def result_post():
-    return redirect(url_for('main.result'))
+

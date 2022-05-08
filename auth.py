@@ -2,7 +2,6 @@ from email import message_from_binary_file
 from pyexpat.errors import messages
 from flask import Blueprint, redirect, render_template, request, url_for
 from . import dbconn
-from . import animal
 from .import user_info
 
 auth = Blueprint('auth', __name__)
@@ -79,5 +78,5 @@ def signup_post():
 
 @auth.route('/logout')
 def logout():
-    animal.currAnimal = None
+    user_info.curruser_info = None
     return redirect(url_for('main.index'))
