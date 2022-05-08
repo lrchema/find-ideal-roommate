@@ -28,7 +28,7 @@ def login_post():
     is_profile_setup = False
     if a[4] != 0:
         is_profile_setup = True
-    user = user_info(a[1], a[2], a[3], is_profile_setup,a[5], a[6], a[7],a[8], a[9], a[10],a[11], a[12], a[13],a[14], a[15], a[16],a[17])
+    user = user_info.user_info(a[1], a[2], a[3], is_profile_setup,a[5], a[6], a[7],a[8], a[9], a[10],a[11], a[12], a[13],a[14], a[15], a[16],a[17])
     if user.password == password:
         
         current_app.config['curruser_info'] = user
