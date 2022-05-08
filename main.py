@@ -16,7 +16,8 @@ def index():
     return render_template('index.html', messages = messages)
 
 @main.route('/<int:userid>')
-def route_user_info(userid, isSomeoneElse):
+def route_user_info(userid):
+    isSomeoneElse = request.args.get('isSomeoneElse')
     if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
     results = request.args.getlist('results')
