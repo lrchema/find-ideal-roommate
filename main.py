@@ -177,8 +177,7 @@ def result():
         matchStr = ""
         for m in matches:
             matchStr+=str(m)+","
-            matchStr= matchStr[:-1]
-        print(matchStr, matches)
+        matchStr= matchStr[:-1]
     else:
         matches = []
         for m in matchStr.split(","):
