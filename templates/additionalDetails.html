@@ -15,12 +15,13 @@
           <a href="{{ url_for('main.mainpage') }}">Back to Main</a>
           {% endif %}
         </div>
-        <div id="i78i-2" class="menu-item">
           {% if isSomeoneElse %}
-          <a href="{{ url_for('main.email', user = user) }}" hidden id="igkt5">Send Email</a>
+          <div id="i78i-2" class="menu-item">
+          <a href="{{ url_for('main.email', user = user) }}" id="igkt5">Send Email</a>
+          </div>
           {% endif %}
 
-        </div>
+        
       </nav>
       <div id="ixk8ib">
       </div>

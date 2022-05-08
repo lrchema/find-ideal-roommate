@@ -169,11 +169,13 @@ def search_post():
 def result():
     if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
-    matches = request.args.getlist('matches')
-    print(matches)
-    results = []
-    for m in matches:
-        results.append(get_user_info_by_id(m))
+    results = request.args.getlist('results')
+    if not results:
+        matches = request.args.getlist('matches')
+        print(matches)
+        results = []
+        for m in matches:
+            results.append(get_user_info_by_id(m))
     return render_template('result.html', results=results)
 
 @main.route('/email')
