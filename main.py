@@ -21,7 +21,7 @@ def route_user_info():
     isSomeoneElse = request.args.get('isSomeoneElse')
     if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
-    results = request.args.getlist('results')
+    matchStr = request.args.get('matchStr')
     user = list(get_user_info_by_id(userid))
     print(user)
     print(user[15])
@@ -36,7 +36,7 @@ def route_user_info():
     else:
         user[13]="No"
     if user[18]:
-      return render_template('additionalDetails.html',isSomeoneElse=isSomeoneElse, user=user, results=results)
+      return render_template('additionalDetails.html',isSomeoneElse=isSomeoneElse, user=user, matchStr=matchStr)
     else:
      return render_template('viewProfile.html',user=user)
 
@@ -170,16 +170,25 @@ def search_post():
 def result():
     if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
-    results = request.args.getlist('results')
-    print(results)
-    if not results:
+    matchStr = request.args.getlist('matchStr')
+    print(matchStr)
+    if not matchStr:
         matches = request.args.getlist('matches')
-        print(matches)
-        results = []
+        matchStr = ""
         for m in matches:
-            results.append(get_user_info_by_id(m))
-    return render_template('result.html', results=results)
+            matchStr+=str(m)+","
+            matchStr= matchStr[:-1]
+    else:
+        matches = []
+        for m in matchStr.split(","):
+            matches.append(int(m))
+    print(matches)
+    results = []
+    for m in matches:
+        results.append(get_user_info_by_id(m))
 
+    return render_template('result.html', results=results, matchStr=matchStr)
+ 
 @main.route('/email')
 def email():
     if not current_app.config['curruser_info']:
