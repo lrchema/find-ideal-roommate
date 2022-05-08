@@ -9,21 +9,23 @@
       </div>
       <nav id="i5uh" class="menu">
         <div id="i78i" class="menu-item">
+          {% if isSomeoneElse %}
+          <a href="{{ url_for('main.result', results = results) }}">Back to Main</a>
+          {% else %}
           <a href="{{ url_for('main.mainpage') }}">Back to Main</a>
+          {% endif %}
         </div>
         <div id="i78i-2" class="menu-item">
-          <a href="{{ url_for('main.email', user = user) }}" id="igkt5">Send Email</a>
+          {% if isSomeoneElse %}
+          <a href="{{ url_for('main.email', user = user) }}" hidden id="igkt5">Send Email</a>
+          {% endif %}
+
         </div>
       </nav>
       <div id="ixk8ib">
       </div>
-      <!-- <div class="clearfix"></div><img id="ixvu53" src="./static/passport1.jpg" /> -->
-      <!-- <div class="clearfix"></div><img id="ixvu53" src="./static/{{user[15]}}" /> -->
       <img src="{{url_for('static', filename=user[15])}}" width=400>
        
-       
-          <!-- <img src="{{url_for('static', filename=user[15])}}" width=400> -->
-
       <div id="ijegz">FIND MY IDEAL ROOM MATE - PROFILE VIEW
       </div>
       <div id="i360k3" class="row">

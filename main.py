@@ -19,7 +19,7 @@ def index():
 def route_user_info(userid):
     if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
-        
+    results = request.args.getlist('results')
     user = list(get_user_info_by_id(userid))
     print(user)
     print(user[15])
@@ -34,7 +34,7 @@ def route_user_info(userid):
     else:
         user[13]="No"
     if user[18]:
-      return render_template('additionalDetails.html',user=user)
+      return render_template('additionalDetails.html',user=user, results=results)
     else:
      return render_template('viewProfile.html',user=user)
 
