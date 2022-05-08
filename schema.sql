@@ -1,6 +1,6 @@
-create database if not exists roommate;
+create database if not exists heroku_a03101e85242a98;
 
-use roommate;
+use heroku_a03101e85242a98;
 
 drop table if exists user_info;
 
