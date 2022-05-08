@@ -170,6 +170,7 @@ def result():
     if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
     results = request.args.getlist('results')
+    print(results)
     if not results:
         matches = request.args.getlist('matches')
         print(matches)

@@ -73,7 +73,7 @@
                     <td>{{r[7]}}</td>
                     <td>{{r[9]}}</td>
                     <td>{{r[10]}}</td>
-                    <td><a href="{{url_for('main.route_user_info', userid=r[0], isSomeoneElse = True)}}">More...</a></td>
+                    <td><a href="{{url_for('main.route_user_info', userid=r[0], isSomeoneElse = True, results=results)}}">More...</a></td>
                   </tr>
                   {% endfor %}
                 </table>
