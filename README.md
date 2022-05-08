@@ -15,6 +15,6 @@
 1. `__init__.py` contains initialising configurations for the app, mostly will not need to touch
 1. `auth.py` contains routings and logic for the authentication-related portions of the app
 1. `main.py` contains routings and logic for the rest of the app
-1. `animal.py` holds the class for the Animal, which is the main entity, equivalent of User, as well as the currAnimal variable, which holds currently logged-in user.
+1. `user_info.py` holds the class for the user, which is the main entity, equivalent of User, as well as the curruser_info variable, which holds currently logged-in user.
 1. everything inside `static/` is the images saved when uploaded using the app
 1. everything inside `templates/` are the html files, where you can see places with python code contained in `{{` and `}}`

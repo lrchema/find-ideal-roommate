@@ -17,8 +17,6 @@
         </div>
       </div>
       <nav id="ibsn" class="menu">
-           <div id="i78i" class="menu-item"><a href="{{ url_for('main.mainpage') }}">Back to Main</a></div>
-      
         <div id="ixu8" class="menu-item">
         </div>
       </nav>
@@ -26,41 +24,14 @@
       </div>
       <div class="clearfix">
       </div>
-      <img id="ixvu53" src="{{url_for('static', filename=user[15])}}" width="100"/>
       <div id="i360k3" class="row">
-        <div id="ib92oi" title="hello" class="cell">
-          <section class="bdg-sect" id="iq7ton">
-            <form class="form" method="POST" action="/email">
-            <textarea id = "iq7ton" name="emailBody" rows = "10" cols="50" font>
-Dear {{user[5]}},
-
-Greetings!
-Hope all is well!
-
-I am looking for a roommate and was using this Find your ideal Roommate application.  
-
-I came across your profile and I am interested to be your roommate as we have many things in common and also your room is close to my office location. If you are interested, we can meet up to discuss
-further. Please send in your interest through email at {{curruser[2]}}.  I will then share my phone number and we can setup our meeting. 
-
-Looking forward to meeting you in person!
-
-Regards,
-{{curruser[5]}}
-            </textarea>
-            </h1>
-            <input type="hidden" readonly value="{{user[0]}}" name="toUserid"/>
+      <label id="ik5b">Email sent successfully!</label>
+      <div id="i78i" class="menu-item"><a href="{{ url_for('main.mainpage') }}">Back to Main</a></div>
+            
           </section>
         </div>
       </div>
-      <div class="row">
-        <div id="igeocb" class="cell">
-            <div class="form-group">
-              <button type="submit" id="ivvqrg" class="button">Send</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+      
   </header>
   <footer class="footer-under" id="iugnrh">
     <div class="container-width">

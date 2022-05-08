@@ -5,6 +5,7 @@ from flask import render_template
 from . import knn
 from . import dbconn
 from . import user_info
+from . import emailSendUtil
 
 main = Blueprint('main', __name__)
 
@@ -179,14 +180,14 @@ def result():
 def email():
     if not user_info.curruser_info:
         return redirect(url_for('auth.login'))
-    messages = request.args.get('messages')
-    if not messages:
-        messages = ""
-    return render_template('email.html', messages = messages)
+    user = request.args.getlist('user')
+    curruser = get_user_info(user_info.curruser_info.username)
+    return render_template('email.html', user = user, curruser = curruser)
 @main.route('/email', methods=['POST'])
 def email_post():
-
-    #TODO implement this
-    return "TODO"
+    emailBody = request.form.get('emailBody')
+    toUserid = int(request.form.get('toUserid'))
+    emailSendUtil.sendEmail(emailBody,toUserid)
+    return render_template('emailSuccess.html')
 
 
