@@ -1,11 +1,10 @@
 import os
-from flask import Blueprint, abort, redirect, request, url_for
+from flask import current_app, Blueprint, abort, redirect, request, url_for
 from flask import render_template
 
-from . import knn
-from . import dbconn
-from . import user_info
-from . import emailSendUtil
+from knn import get_top_k
+from __init__ import dbconn
+from emailSendUtil import sendEmail
 
 main = Blueprint('main', __name__)
 
@@ -18,7 +17,7 @@ def index():
 
 @main.route('/<int:userid>')
 def route_user_info(userid):
-    if not user_info.curruser_info:
+    if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
         
     user = list(get_user_info_by_id(userid))
@@ -64,7 +63,7 @@ def get_user_info(username):
 
 @main.route('/mainpage')
 def mainpage():
-    if not user_info.curruser_info:
+    if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
     messages = request.args.get('messages')
     if not messages:
@@ -73,46 +72,46 @@ def mainpage():
 
 @main.route('/profileSetup')
 def profileSetup():
-    if not user_info.curruser_info:
+    if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
     messages = request.args.get('messages')
     if not messages:
         messages = ""
-    return render_template('profileSetup.html', user = user_info.curruser_info)
+    return render_template('profileSetup.html', user = current_app.config['curruser_info'])
 
 @main.route('/profileSetup', methods=['POST'])
 def profileSetup_post():
-    if not user_info.curruser_info:
+    if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
     UPLOAD_FOLDER = 'static/'
     print(len(request.files))
     print(request.files['file'])
     file = request.files['file']
     name1 = request.form.get('name') 
-    email = user_info.curruser_info.email
+    email = current_app.config['curruser_info'].email
     gender = request.form.get('Gender') 
     lang = request.form.get('Lang') 
     age = request.form.get('age') 
     food_pref = request.form.get('food_pref') 
     drinker = bool(int(request.form.get('Drinker')))
-    username =user_info.curruser_info.username
+    username =current_app.config['curruser_info'].username
     shift = request.form.get('Shift') 
     filename = file.filename
     print(name1,email,gender,lang,age,food_pref,drinker,shift,username,filename) 
 
     file.save(os.path.join(UPLOAD_FOLDER, filename))
-    user_info.curruser_info.profile_picture = filename
-    user_info.curruser_info.name = name1
-    user_info.curruser_info.email = email
-    user_info.curruser_info.gender = gender
-    user_info.curruser_info.gang= lang
-    user_info.curruser_info.age = age
-    user_info.curruser_info.food_pref = food_pref
-    user_info.curruser_info.drinker = drinker
-    user_info.curruser_info.shift = shift
-    user_info.curruser_info.username = username
+    current_app.config['curruser_info'].profile_picture = filename
+    current_app.config['curruser_info'].name = name1
+    current_app.config['curruser_info'].email = email
+    current_app.config['curruser_info'].gender = gender
+    current_app.config['curruser_info'].gang= lang
+    current_app.config['curruser_info'].age = age
+    current_app.config['curruser_info'].food_pref = food_pref
+    current_app.config['curruser_info'].drinker = drinker
+    current_app.config['curruser_info'].shift = shift
+    current_app.config['curruser_info'].username = username
     
-    query, vals =user_info.curruser_info.profileSetup()
+    query, vals =current_app.config['curruser_info'].profileSetup()
      
     conn = dbconn()
     conn.reconnect()
@@ -124,19 +123,19 @@ def profileSetup_post():
 @main.route('/viewprofile')
     
 def viewprofile():
-    if not user_info.curruser_info:
+    if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
-    print("drinker:",user_info.curruser_info.drinker)
+    print("drinker:",current_app.config['curruser_info'].drinker)
     messages = request.args.get('messages')
     if not messages:
         messages = ""
-    username=user_info.curruser_info.username
+    username=current_app.config['curruser_info'].username
     user = list(get_user_info(username))
     return redirect(url_for('main.route_user_info', userid=user[0]))
     
 @main.route('/search')
 def search():
-    if not user_info.curruser_info:
+    if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
     conn = dbconn()
     conn.reconnect()
@@ -161,13 +160,13 @@ def search_post():
     passions = request.form.get('passions')
 
     print(gender, age, city, area, lang, food_pref, shift, drinker, passions)
-    matches = knn.get_top_k([gender, age, city, area, lang, food_pref, shift, drinker, passions])
+    matches = get_top_k([gender, age, city, area, lang, food_pref, shift, drinker, passions])
     
     return redirect(url_for('main.result', matches=matches))
 
 @main.route('/result')
 def result():
-    if not user_info.curruser_info:
+    if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
     matches = request.args.getlist('matches')
     print(matches)
@@ -178,16 +177,16 @@ def result():
 
 @main.route('/email')
 def email():
-    if not user_info.curruser_info:
+    if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
     user = request.args.getlist('user')
-    curruser = get_user_info(user_info.curruser_info.username)
+    curruser = get_user_info(current_app.config['curruser_info'].username)
     return render_template('email.html', user = user, curruser = curruser)
 @main.route('/email', methods=['POST'])
 def email_post():
     emailBody = request.form.get('emailBody')
     toUserid = int(request.form.get('toUserid'))
-    emailSendUtil.sendEmail(emailBody,toUserid)
+    sendEmail(emailBody,toUserid)
     return render_template('emailSuccess.html')
 
 

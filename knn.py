@@ -1,6 +1,5 @@
-from urllib.parse import uses_relative
 from math import sqrt
-from . import dbconn
+from __init__ import dbconn
 
 def distance(sc, u2):
     total = 0

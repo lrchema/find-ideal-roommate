@@ -1,5 +1,3 @@
-curruser_info = None #This is the global variable that stores current logged in user
-
 class user_info():
 
     def __init__(self,username,email,  password, is_profile_setup=False,name=None, gender=None,age=None,lang=None,room_city=None, 
