@@ -16,7 +16,7 @@ def index():
     return render_template('index.html', messages = messages)
 
 @main.route('/<int:userid>')
-def route_user_info(userid):
+def route_user_info(userid, isSomeoneElse):
     if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
     results = request.args.getlist('results')
@@ -34,7 +34,7 @@ def route_user_info(userid):
     else:
         user[13]="No"
     if user[18]:
-      return render_template('additionalDetails.html',user=user, results=results)
+      return render_template('additionalDetails.html',isSomeoneElse=isSomeoneElse, user=user, results=results)
     else:
      return render_template('viewProfile.html',user=user)
 
@@ -131,7 +131,7 @@ def viewprofile():
         messages = ""
     username=current_app.config['curruser_info'].username
     user = list(get_user_info(username))
-    return redirect(url_for('main.route_user_info', userid=user[0]))
+    return redirect(url_for('main.route_user_info', userid=user[0], isSomeoneElse = False))
     
 @main.route('/search')
 def search():
