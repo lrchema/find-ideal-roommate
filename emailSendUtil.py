@@ -1,5 +1,5 @@
 import yagmail
-from . import dbconn
+from __init__ import dbconn
 
 def sendEmail(emailBody, toUserid):
     conn = dbconn()
