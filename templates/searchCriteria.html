@@ -27,7 +27,7 @@
                 <form id="iq2rmo" class="form" method="POST" action="/search">
                     <div id="ips8z3" class="row">
                         <div id="iv23uz" class="cell">
-                            <div id="ieiiuk">Gender</div><select name="gender" class="select">
+                            <div id="ieiiuk">Gender</div><select required name="gender" class="select">
                                 <option value="">- Select option -</option>
                                 <option value="F">Female</option>
                                 <option value="M">Male</option>
@@ -43,8 +43,8 @@
                                     <div id="i64cvj">Age  Between  </div>
                                 </div>
                                 <div id="iahbxe" class="cell">
-                                    <input id="ivypj5" class="input" placeholder="min. age" type="number" name="minAge" />
-                                    <input name="maxAge" placeholder="max. age" type="number" id="izywwx" class="input" /></div>
+                                    <input required id="ivypj5" class="input" placeholder="min. age" type="number" name="minAge" />
+                                    <input required name="maxAge" placeholder="max. age" type="number" id="izywwx" class="input" /></div>
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                                 <option value="">- Select option -</option>
                                 <option value="Chennai">Chennai</option>
                             </select>
-                            <div id="it30ri">Area</div><select name="area" id="i1vdxo" class="select">
+                            <div id="it30ri">Area</div><select required name="area" id="i1vdxo" class="select">
                                 <option value="">- Select option -</option>
                                 <option value="Mylapore">Mylapore</option>
                                 <option value="Ashok Nagar">Ashok Nagar</option>
@@ -66,7 +66,7 @@
                         </div>
                         <div id="ihxxh8" class="cell">
                        
-                            <div id="ibnjnx">Language </div><select id="igtbjc" name="lang" class="select">
+                            <div id="ibnjnx">Language </div><select required id="igtbjc" name="lang" class="select">
                                 <option value="">- Select option -</option>
                                 <option value="Tamil">Tamil</option>
                                 <option value="English">English</option>
@@ -80,28 +80,28 @@
                     <div id="iwdbic" class="row"></div>
                     <div id="iphk3s" class="row">
                         <div id="i7qj7d" class="cell">
-                            <div id="i15gy4">Food Preferences</div><select name="food_pref" id="iek025" class="select">
+                            <div id="i15gy4">Food Preferences</div><select required name="food_pref" id="iek025" class="select">
                                 <option value="">- Select option -</option>
                                 <option value="Vegetarian">Vegetarian</option>
                                 <option value="Non-vegetarian">Non-Vegetarian</option>
                             </select>
                         </div>
                         <div class="cell" id="imoh2o">
-                            <div id="i15gy4">Working Shift</div><select name="shift" class="select" id="i9vy8r">
+                            <div id="i15gy4">Working Shift</div><select required name="shift" class="select" id="i9vy8r">
                                 <option value="">- Select option -</option>
                                 <option value="Day">Day</option>
                                 <option value="Night">Night</option>
                             </select>
                         </div>
                         <div id="itzvzh" class="cell">
-                            <div id="ilwdre">Drinking Habits</div><select name="drinker" id="iua0hg" class="select">
+                            <div id="ilwdre">Drinking Habits</div><select required name="drinker" id="iua0hg" class="select">
                                 <option value="">- Select option -</option>
                                 <option value=1>Drinker</option>
                                 <option value=0>Teetotaller</option>
                             </select>
                         </div>
                         
-                    </div><div id="is6eqk">Passion</div><select name = "passions" class="select" id="i6ledj">
+                    </div><div id="is6eqk">Passion</div><select required name = "passions" class="select" id="i6ledj">
                         <option value="">- Select option -</option>
                         {% for p in passions %}
                             <option value = "{{p[0]}}">{{ p[0] }}</option>
