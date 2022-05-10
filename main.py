@@ -127,7 +127,6 @@ def profileSetup_post():
 def viewprofile():
     if not current_app.config['curruser_info']:
         return redirect(url_for('auth.login'))
-    print("drinker:",current_app.config['curruser_info'].drinker)
     messages = request.args.get('messages')
     if not messages:
         messages = ""
