@@ -27,7 +27,7 @@ def get_top_k(sc, k=3):
     conn = dbconn()
     conn.reconnect()
     cur = conn.cursor()
-    cur.execute("select gender, age, room_city, room_area, lang, food_pref, shift, drinker, passions, userid from user_info where have_roof=1")
+    cur.execute("select gender, age, room_city, room_area, lang, food_pref, shift, drinker, passions, userid from user_info where have_roof=1 and room_area=%s and gender=%s",(sc[3], sc[0]))
     usersList = list(cur.fetchall())
     print(len(usersList))
     conn.close()
