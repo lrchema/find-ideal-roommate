@@ -106,7 +106,7 @@ def profileSetup_post():
     current_app.config['curruser_info'].name = name1
     current_app.config['curruser_info'].email = email
     current_app.config['curruser_info'].gender = gender
-    current_app.config['curruser_info'].gang= lang
+    current_app.config['curruser_info'].lang= lang
     current_app.config['curruser_info'].age = age
     current_app.config['curruser_info'].food_pref = food_pref
     current_app.config['curruser_info'].drinker = drinker
